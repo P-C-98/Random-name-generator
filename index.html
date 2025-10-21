@@ -13,18 +13,22 @@
     </div>
     
 
-    <div class="input-buttons">
-        <p id="heading-two">Names</p>
+        <p class="headings">Names</p>
         <textarea id="name-input" placeholder="Enter names"></textarea><br>
-        <p id="heading-three">Teams</p>
+        <p class="headings">Teams</p>
         <input type="number" id="team-input" placeholder="0"></input>
-    </div>
+
+        <br>
+        <button class="my-button" onclick="addItemToArray()">Generate</button>
+        <div id="displayArray"></div>
         
-        <button id="my-button">Generate</button>
+        <p class="headings">Saved Names</p>
+        <ul id="outputList"></ul>
 
-        <output type ="names-numbers" id="random-teams" placeholder="final teams">
-
+        <button class="my-button" onclick="window.location.href='index.html'">Reset</button>
 
     <script src="index.js"></script>
+        
+
 </body>
 </html>
