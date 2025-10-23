@@ -1,45 +1,62 @@
 
-let myDataArray = [];
+//Created the names array
+const names = [];
+const teams = [];
 
-function addItemToArray() {
-    const inputNames = document.getElementById("name-input");
+//Created function
+function addName() {
+    const inputNames = document.getElementById("input-names");
     const nameValue = inputNames.value.trim();
-    const outputList = document.getElementById("outputList")
 
-    if (nameValue !=='') {
-        myDataArray.push(nameValue);
-        inputNames.value = '';
+//Created if statement 
 
-        localStorage.setItem('names', JSON.stringify(myDataArray));
+const newNames = nameValue.split(/\s+/);
 
-        displayArray();
+names.push(...newNames);
 
-    }else {
-        alert('Please enter a value');
-    }
+inputNames.value = "";
+console.log("Names:", names);
 
-    function goToOutputPage() {
-      window.location.href = "output.html";
-    }
+//Created for loop to iterate the loop 
+    for(let i = 0; i < names.length; i++) {
+        console.log(names[i]);
+        }
 }
 
-function displayArray() {
-    const outputList = document.getElementById("outputList");
-    outputList.innerHTML = '';
 
-    myDataArray.forEach(name => {
-        const li = document.createElement("li");
-        li.textContent = name;
-        outputList.appendChild(li);
+function addTeam(){
+    const inputTeams = document.getElementById("input-teams");
+    const teamValue = Number(inputTeams.value);
+
+    if(teamValue > 0){
+        teams.length = 0;
+        for (let i = 0; i < teamValue; i++) {
+            teams.push([]);
+        }
+        console.log(`Created ${teamValue} teams`, teams);
+    }else{
+        console.log("Please enter a valid number");
+    } 
+}
+
+function generateTeam() {
+
+    if (teams.length === 0 || names.length === 0) {
+    alert("Please add names and create teams first!");
+    return;
+    }
+
+    //shuffle the names 
+    const shuffled = [...names].sort(() => Math.random() - 0.5);
+
+    //put names into teams
+    shuffled.forEach((name, index) => {
+        const teamIndex = index % teams.length;
+        teams[teamIndex].push(name);
     });
+
+   document.getElementById("outputList").innerHTML = teams
+  .map((team, i) => `<p><strong>Team ${i + 1}:</strong> ${team.join(", ")}</p>`)
+  .join("");
+
 }
-function goToOutputPage() {
-    window.location.href = "output.html";
-}
-
-
-
-
-
-
-

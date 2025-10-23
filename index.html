@@ -7,28 +7,62 @@
     <link rel="Stylesheet" href="style.css">
 </head>
 <body>
-    <div class="dice-header">
-        <h1 id="heading">Random Team Generator</h1>
-        <img src="newImages/dice-png-41775.png" alt="Dice icon">
-    </div>
+
+    <div id="header">
+            <div id="header-left">
+                <img src="newImages/penguin.png">
+                <h1>Teacher Toolbox</h1>
+            </div>
+      
+            <nav class="navbar">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Tools</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    <div id="container">
+        <div class="dice-header">
+            <h1 id="heading">Random Team Generator</h1>
+            <img src="newImages/dice-png-41775.png" alt="Dice icon">
+        </div>
     
 
-        <p class="headings">Names</p>
-        <textarea id="name-input" placeholder="Enter names"></textarea><br>
-        <p class="headings">Teams</p>
-        <input type="number" id="team-input" placeholder="0"></input>
+        <p class="headings">Names:</p>
+        <textarea id="input-names" placeholder="Enter names"></textarea>
 
-        <br>
-        <button class="my-button" onclick="addItemToArray()">Generate</button>
-        <div id="displayArray"></div>
+        <button class="my-button" onclick="addName()">Add names</button>
+
+        <p class="headings">Number of teams:</p>
+        <input type="number" min="0" id="input-teams" placeholder="0"></input>
+
+    
+        <button class="my-button" onclick="addTeam()">Add teams</button>
+
+        <button class="my-button" onclick="generateTeam()">Generate teams</button>
         
-        <p class="headings">Saved Names</p>
+        <p class="headings">Teams:</p>
         <ul id="outputList"></ul>
 
         <button class="my-button" onclick="window.location.href='index.html'">Reset</button>
 
-    <script src="index.js"></script>
         
+    </div>
+    <div id="footer">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Tools</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    <script src="index.js"></script>
 
+    
 </body>
 </html>
